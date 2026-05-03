@@ -1,0 +1,6 @@
+board:
+  name: aaminu
+  full_name: My Board
+  vendor: aaminu
+  socs:
+  - name: rp2040

@@ -4,7 +4,7 @@
 
 #define SLEEP_TIME_MS 1000
 
-#define LED_NODE DT_ALIAS(app_led)
+#define LED_NODE DT_ALIAS(led0)
 
 static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
 
