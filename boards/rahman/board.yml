@@ -1,0 +1,6 @@
+board:
+  name: rahman
+  full_name: My Board From Scratch
+  vendor: aaminu
+  socs:
+  - name: rp2040
