@@ -1,0 +1,10 @@
+description: Our Simple LED Sensor
+
+compatible: "our,led-sensor"
+
+include: base.yaml
+
+properties:
+  led-gpios:
+    type: phandle-array
+    required: true
