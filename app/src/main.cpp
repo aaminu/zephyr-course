@@ -2,6 +2,7 @@
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
+#include "drivers/our_led_sensor/our_led_sensor.h"
 
 #define SLEEP_TIME_MS 1000
 
@@ -24,11 +25,12 @@ int main(void)
         return 0;
     }
 
-    while (1) {
-        sensor_sample_fetch(dev);                  // LED ON
-        k_msleep(CONFIG_APP_HEARTBEAT_PERIOD_MS);
+    // Extension API call
+    led_sensor_set_blink_count(dev, 3);
 
-        sensor_channel_get(dev, SENSOR_CHAN_LIGHT, &val); // LED OFF
+    while (1) {
+        sensor_sample_fetch_chan(dev, SENSOR_CHAN_LIGHT);
+        sensor_channel_get(dev, SENSOR_CHAN_LIGHT, &val);
         k_msleep(CONFIG_APP_HEARTBEAT_PERIOD_MS);
     }
     return 0;
